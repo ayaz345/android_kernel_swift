@@ -16,14 +16,10 @@ from Core import *
 
 usage = "perf trace -s syscall-counts.py [comm]\n";
 
-for_comm = None
-
 if len(sys.argv) > 2:
 	sys.exit(usage)
 
-if len(sys.argv) > 1:
-	for_comm = sys.argv[1]
-
+for_comm = sys.argv[1] if len(sys.argv) > 1 else None
 syscalls = autodict()
 
 def trace_begin():
